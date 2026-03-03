@@ -88,7 +88,9 @@ function(add_dsp_test TEST_NAME TEST_SOURCE)
             dsp_core
             GTest::gtest_main # provide main(), just write TEST()
     )
-    add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
+    #add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
+    include(GoogleTest)
+    gtest_discover_tests(${TEST_NAME})
 endfunction()
 
 add_subdirectory(tests)
