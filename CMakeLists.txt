@@ -64,12 +64,21 @@ add_subdirectory(src)
 enable_testing()
 
 include(FetchContent)
-FetchContent_Declare(
-        GoogleTest
-        GIT_REPOSITORY https://github.com/google/googletest.git
-        GIT_TAG v1.15.2
-)
-FetchContent_MakeAvailable(GoogleTest)
+
+find_package(GTest QUIET)
+
+if(NOT GTest_FOUND)
+    message(STATUS "GTest not found. Fetching with FetchContent")
+
+    FetchContent_Declare(
+            GoogleTest
+            GIT_REPOSITORY https://github.com/google/googletest.git
+            GIT_TAG v1.15.2
+    )
+    FetchContent_MakeAvailable(GoogleTest)
+else()
+    message(STATUS "GTest found")
+endif()
 
 # -- Test's helper functions --
 function(add_dsp_test TEST_NAME TEST_SOURCE)
