@@ -5,7 +5,7 @@
 #include <type_traits>
 #include <vector>
 
-using dsp::Signal;
+using dsp:: Signal;
 
 TEST(SignalTest, DefaultConstructionIsEmpty) {
     Signal<double> sig;
@@ -203,13 +203,3 @@ TEST(SignalTest, SelfAssignmentIsSafe) {
     #pragma GCC diagnostic pop
     // Must not crash — state may be valid or empty, but not UB
 }
-
-
-
-
-
-
-
-
-
-

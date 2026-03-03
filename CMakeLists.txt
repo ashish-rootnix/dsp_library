@@ -94,3 +94,12 @@ function(add_dsp_test TEST_NAME TEST_SOURCE)
 endfunction()
 
 add_subdirectory(tests)
+
+# ── GUI (optional — only build if Qt6 found) ──
+find_package(Qt6 COMPONENTS Widgets QUIET)
+if(Qt6_FOUND)
+    message(STATUS "Qt6 found — building GUI")
+    add_subdirectory(gui)
+else()
+    message(STATUS "Qt6 not found — skipping GUI")
+endif()
