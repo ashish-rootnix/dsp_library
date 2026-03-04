@@ -1,3 +1,0 @@
-#include "SineWavePlot.hpp"
-
-

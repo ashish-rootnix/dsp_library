@@ -16,7 +16,8 @@ target_compile_options(qcustomplot PRIVATE -w)
 
 add_executable(dsp_gui
     main.cpp
-    SineWavePlot.cpp
+    SineWaveViewer.cpp
+    SineWaveViewer.hpp
 )
 
 target_link_libraries(dsp_gui
